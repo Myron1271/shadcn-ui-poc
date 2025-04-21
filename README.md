@@ -1,10 +1,10 @@
-# Project Title
+# ShadCN/UI POC
 
-Simple overview of use/purpose.
+Een POC gemaakt uit kant en klare ShaCN/UI componenten 
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+...
 
 ## Getting Started
 
@@ -14,6 +14,11 @@ An in-depth paragraph about your project and overview of use.
 * ex. Windows 10
 
 ### Installing
+
+Na het clonen van het project run:
+```
+npm install
+```
 
 * How/where to download your program
 * Any modifications needed to be made to files/folders
