@@ -1,10 +1,15 @@
-import {Button} from "@/components/ui/button";
 import {Hero} from "@/components/custom/Hero";
+import {Pricing} from "@/components/custom/Pricing.tsx";
 
 export function Home() {
     return (
         <>
-            <Hero />
+            <div className={"heroSection flex justify-center bg-gray-100"}>
+                <Hero/>
+            </div>
+            <div className={"pricingSection flex justify-center"}>
+                <Pricing/>
+            </div>
         </>
     );
 }

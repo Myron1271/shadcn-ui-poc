@@ -29,7 +29,7 @@ interface HeroProps {
 const Hero = ({
                    badge = "Bezoek ShadCN/UI",
                    heading = "Componenten gemaakt met ShadCN/UI",
-                   description = "In deze POC gebruik ik ShadCN/UI. Deze component library is gebaseerd op Tailwind, wat betekent dat je veel vrijheid hebt in de vormgeving. Daarentegen biedt ShadCN/UI nog iets extra’s...",
+                   description = "In deze POC gebruik ik ShadCN/UI. Deze component library is gebaseerd op Tailwind, wat betekent dat je veel vrijheid hebt in de vormgeving.",
                    buttons = {
                        primary: {
                            text: "Bekijk alle componenten",
@@ -46,7 +46,7 @@ const Hero = ({
                    },
                }: HeroProps) => {
     return (
-        <section className="py-32">
+        <section className="py-20">
             <div className="container">
                 <div className="grid items-center gap-8 lg:grid-cols-2">
                     <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
@@ -81,7 +81,7 @@ const Hero = ({
                     <img
                         src={image.src}
                         alt={image.alt}
-                        className="h-100 w-full bg-red-300 rounded-xl"
+                        className="h-100 w-full bg-white rounded-xl"
                     />
                 </div>
             </div>

@@ -49,15 +49,15 @@ const Navbar = ({
                         alt: "logo",
                     },
                     menu = [
-                        { title: "Home", url: "/" },
+                        { title: "Home  ", url: "#hero" },
                         {
-                            title: "About",
-                            url: "/about",
+                            title: "Prijzen",
+                            url: "#pricing",
                         },
                     ],
                 }: NavbarProps) => {
     return (
-        <section className="py-4 flex justify-center">
+        <section className="py-4 flex justify-center bg-gray-100">
             <div className="container ">
                 {/* Desktop Menu */}
                 <nav className="hidden items-center justify-between lg:flex">
@@ -140,7 +140,7 @@ const renderMenuItem = (item: MenuItem) => {
         <NavigationMenuItem key={item.title}>
             <NavigationMenuLink
                 href={item.url}
-                className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"
+                className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-none px-4 py-2 text-md font-medium transition-colors hover:bg-white"
             >
                 {item.title}
             </NavigationMenuLink>
