@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import shadcnuiLogo from "../../assets/shadcnuiLogo.svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import shadcnuiLogo from "../../assets/shadcnuiLogo.svg";
 
 interface HeroProps {
     badge?: {

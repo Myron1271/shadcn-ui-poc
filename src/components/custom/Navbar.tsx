@@ -1,5 +1,6 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { Menu, } from "lucide-react";
 import Logo from "../../assets/logo.svg"
+import { useState, useEffect } from 'react';
 
 import {
     Accordion,
@@ -47,6 +48,7 @@ const Navbar = ({
                         url: "/",
                         src: Logo,
                         alt: "logo",
+                        title: ""
                     },
                     menu = [
                         { title: "Home  ", url: "#hero" },
@@ -56,22 +58,34 @@ const Navbar = ({
                         },
                     ],
                 }: NavbarProps) => {
+    const [hasScrolled, setHasScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setHasScrolled(true);
+            } else {
+                setHasScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
-        <section className="py-4 flex justify-center bg-gray-100">
+        <section className={`sticky top-0 z-50 py-4 flex justify-center bg-gray-100 ${hasScrolled ? 'shadow-md' : ''}`}>
             <div className="container ">
-                {/* Desktop Menu */}
                 <nav className="hidden items-center justify-between lg:flex">
-                    {/* Logo links */}
                     <div className="flex items-center gap-2">
                         <a href={logo.url} className="flex items-center gap-2">
                             <img src={logo.src} className="max-h-8 w-50" alt={logo.alt} />
                             <span className="text-lg font-semibold tracking-tighter">
-              {logo.title}
-            </span>
+                                {logo.title}
+                            </span>
                         </a>
                     </div>
-
-                    {/* Navigatie rechts */}
                     <div className="flex items-center">
                         <NavigationMenu>
                             <NavigationMenuList>
@@ -81,10 +95,8 @@ const Navbar = ({
                     </div>
                 </nav>
 
-                {/* Mobile Menu */}
                 <div className="block lg:hidden">
                     <div className="flex items-center justify-between">
-                        {/* Logo */}
                         <a href={logo.url} className="flex items-center w-50 ml-3">
                             <img src={logo.src} className="max-h-8" alt={logo.alt} />
                         </a>
@@ -106,8 +118,7 @@ const Navbar = ({
                                     <Accordion
                                         type="single"
                                         collapsible
-                                        className="flex w-full flex-col gap-4"
-                                    >
+                                        className="flex w-full flex-col gap-4">
                                         {menu.map((item) => renderMobileMenuItem(item))}
                                     </Accordion>
                                 </div>
@@ -140,8 +151,7 @@ const renderMenuItem = (item: MenuItem) => {
         <NavigationMenuItem key={item.title}>
             <NavigationMenuLink
                 href={item.url}
-                className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-none px-4 py-2 text-md font-medium transition-colors hover:bg-white"
-            >
+                className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-none px-4 py-2 text-md font-medium transition-colors hover:bg-white">
                 {item.title}
             </NavigationMenuLink>
         </NavigationMenuItem>
@@ -173,10 +183,8 @@ const renderMobileMenuItem = (item: MenuItem) => {
 
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
     return (
-        <a
-            className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
-            href={item.url}
-        >
+        <a className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
+            href={item.url}>
             <div className="text-foreground">{item.icon}</div>
             <div>
                 <div className="text-sm font-semibold">{item.title}</div>

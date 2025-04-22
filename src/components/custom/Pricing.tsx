@@ -106,16 +106,11 @@ const Pricing = ({
                                         {plan.description}
                                     </p>
                                     <span className="text-4xl font-bold">
-                    {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                  </span>
+                                        {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                                    </span>
                                 </CardHeader>
                                 <CardContent>
                                     <Separator className="mb-6" />
-                                    {plan.id === "pro" && (
-                                        <p className="mb-3 font-semibold">
-                                            Everything in Plus, and:
-                                        </p>
-                                    )}
                                     <ul className="space-y-4">
                                         {plan.features.map((feature, index) => (
                                             <li key={index} className="flex items-center gap-2">
